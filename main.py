@@ -5,12 +5,42 @@ from modules.greet import greet
 
 import time
 
+CONVERSATION_TIMEOUT = 30
+
 greet()
 
 conversation_mode = False
 last_activity = 0
 
 while True:
+
+    print("\n================================")
+    print("Press ENTER for Voice Command")
+    print("Or type a command directly")
+    print("================================")
+
+    text_input = input("You: ").strip().lower()
+
+    # TEXT MODE
+    if text_input:
+
+        if text_input == "jarvis":
+
+            speak("Yes Vishnu")
+
+            conversation_mode = True
+            last_activity = time.time()
+
+            continue
+
+        result = execute(text_input)
+
+        if result == "exit":
+            break
+
+        continue
+
+    # VOICE MODE
 
     if conversation_mode:
 
@@ -20,13 +50,12 @@ while True:
 
             last_activity = time.time()
 
-            if "exit" in command:
-                speak("Goodbye Vishnu")
+            result = execute(command)
+
+            if result == "exit":
                 break
 
-            execute(command)
-
-        if time.time() - last_activity > 30:
+        if time.time() - last_activity > CONVERSATION_TIMEOUT:
 
             conversation_mode = False
 
@@ -36,15 +65,12 @@ while True:
 
         wake_word = listen()
 
-        if "exit" in wake_word:
+        if wake_word:
 
-            speak("Goodbye Vishnu")
-            break
+            if "jarvis" in wake_word:
 
-        if "jarvis" in wake_word:
+                speak("Yes Vishnu")
 
-            speak("Yes Vishnu")
+                conversation_mode = True
 
-            conversation_mode = True
-
-            last_activity = time.time()
+                last_activity = time.time()
