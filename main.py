@@ -21,7 +21,10 @@ while True:
 
     text_input = input("You: ").strip().lower()
 
+    # =========================
     # TEXT MODE
+    # =========================
+
     if text_input:
 
         if text_input == "jarvis":
@@ -36,11 +39,14 @@ while True:
         result = execute(text_input)
 
         if result == "exit":
+
             break
 
         continue
 
-    # VOICE MODE
+    # =========================
+    # VOICE CONVERSATION MODE
+    # =========================
 
     if conversation_mode:
 
@@ -53,7 +59,10 @@ while True:
             result = execute(command)
 
             if result == "exit":
+
                 break
+
+        # timeout check
 
         if time.time() - last_activity > CONVERSATION_TIMEOUT:
 
@@ -61,11 +70,35 @@ while True:
 
             speak("Standing by")
 
+    # =========================
+    # WAKE WORD MODE
+    # =========================
+
     else:
 
         wake_word = listen()
 
         if wake_word:
+
+            wake_word = wake_word.lower()
+
+            # direct exit support
+
+            if any(
+                word in wake_word
+                for word in [
+                    "exit",
+                    "close",
+                    "shutdown",
+                    "stop"
+                ]
+            ):
+
+                speak("Goodbye Vishnu")
+
+                break
+
+            # wake word
 
             if "jarvis" in wake_word:
 

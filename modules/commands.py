@@ -6,19 +6,24 @@ from datetime import datetime
 from modules.speak import speak
 from modules.logger import log_command
 from modules.system_monitor import get_system_status
+from modules.ai_brain import ask_ai
 
 from modules.memory import (
     remember,
     recall,
     get_all_memories
 )
+
+
 def execute(command):
 
     command = command.lower().strip()
 
     log_command(command)
 
-    # Greetings
+    # =========================
+    # GREETINGS
+    # =========================
 
     if "hello" in command:
 
@@ -28,7 +33,9 @@ def execute(command):
 
         speak("My name is Jarvis")
 
-    # Applications
+    # =========================
+    # APPLICATIONS
+    # =========================
 
     elif "chrome" in command:
 
@@ -45,7 +52,9 @@ def execute(command):
         speak("Opening Visual Studio Code")
         os.system("code")
 
-    # Websites
+    # =========================
+    # WEBSITES
+    # =========================
 
     elif "google" in command:
 
@@ -57,18 +66,24 @@ def execute(command):
         speak("Opening YouTube")
         webbrowser.open("https://www.youtube.com")
 
-    # Time
+    # =========================
+    # TIME
+    # =========================
 
     elif "time" in command:
 
         current_time = datetime.now().strftime("%I:%M %p")
+
         speak(f"The time is {current_time}")
 
-    # Date
+    # =========================
+    # DATE
+    # =========================
 
     elif "date" in command:
 
         current_date = datetime.now().strftime("%d %B %Y")
+
         speak(f"Today's date is {current_date}")
 
     # =========================
@@ -182,11 +197,26 @@ def execute(command):
         return "exit"
 
     # =========================
-    # UNKNOWN COMMAND
+    # AI FALLBACK
     # =========================
 
     else:
 
-        speak(
-            "I do not know that command yet."
-        )
+        try:
+
+            speak("Thinking")
+
+            response = ask_ai(command)
+
+            print("\nAI Response:\n")
+            print(response)
+
+            speak(response[:300])
+
+        except Exception as e:
+
+            print("AI Error:", e)
+
+            speak(
+                "Sorry Vishnu, my AI brain is currently unavailable."
+            )
