@@ -1,176 +1,110 @@
-# 🤖 JARVIS AI Assistant
+# 🚀 JARVIS v0.4.0 – Local AI Assistant
 
-A Python-based AI Assistant inspired by Tony Stark's JARVIS from Marvel's Iron Man.
-
-## 📌 Project Overview
-
-JARVIS is a voice-controlled personal assistant that can listen to user commands, respond using speech, execute system tasks, and maintain logs of user interactions.
-
-This project is being developed in phases, gradually evolving from a simple voice assistant into an intelligent AI-powered personal assistant.
+JARVIS has evolved from a basic voice assistant into an offline AI-powered desktop assistant capable of handling commands, remembering user information, monitoring the system, and answering general questions using a locally running Large Language Model (LLM).
 
 ---
 
-## 🚀 Current Version
+## ✨ Features
 
-### JARVIS v0.2
+### 🎤 Voice Interaction
+- Voice command support
+- Text command support
+- Wake word: "Jarvis"
+- Conversation Mode
+- Auto timeout (30 seconds)
 
-### Features Implemented
+### 🧠 AI Brain
+- Offline AI using Ollama
+- Llama 3.2 (3B)
+- AI fallback for unknown commands
+- No internet required for AI responses
 
-#### Phase 1 - Voice Assistant Foundation
+### 💾 Smart Memory
+- Remember user information
+- Recall saved information
+- Show all memories
+- JSON-based persistent storage
 
-* Voice Recognition using SpeechRecognition
-* Text To Speech using pyttsx3
-* Greeting System
-* Basic Command Processing
-* Open Chrome
-* Open Notepad
-* Modular Project Structure
+### 💻 System Features
+- Open Chrome
+- Open VS Code
+- Open Notepad
+- Open Google
+- Open YouTube
+- Tell current time
+- Tell current date
+- Monitor CPU, RAM and Disk usage
 
-#### Phase 2 - Wake Word & Utilities
-
-* Wake Word Detection ("Jarvis")
-* Open Google
-* Open YouTube
-* Open VS Code
-* Tell Current Time
-* Tell Current Date
-* Command Logging
-* Exit Command
+### 📋 Logging
+- Command history
+- Timestamp logging
 
 ---
 
-## 🛠 Technologies Used
+## 🛠️ Technologies Used
 
-* Python 3.12
-* SpeechRecognition
-* PyAudio
-* pyttsx3
-* datetime
-* webbrowser
-* os
+- Python 3.12
+- SpeechRecognition
+- PyAudio
+- pyttsx3
+- psutil
+- Ollama
+- Llama 3.2 (3B)
+- JSON
+- Windows 11
 
 ---
 
 ## 📂 Project Structure
 
+```
 JARVIS/
-
-├── main.py
-
-├── requirements.txt
-
-├── README.md
-
-├── modules/
-
-│   ├── speak.py
-
-│   ├── listen.py
-
-│   ├── greet.py
-
-│   ├── commands.py
-
-│   └── logger.py
-
-├── logs/
-
-│   └── commands.log
-
+│
 ├── data/
-
-└── assets/
-
----
-
-## ⚙️ Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/montylr2722l/JARVIS.git
-cd JARVIS
-```
-
-Create virtual environment:
-
-```bash
-python -m venv venv
-```
-
-Activate virtual environment:
-
-```bash
-venv\Scripts\activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Run JARVIS:
-
-```bash
-python main.py
+├── logs/
+├── modules/
+│   ├── ai_brain.py
+│   ├── commands.py
+│   ├── greet.py
+│   ├── listen.py
+│   ├── logger.py
+│   ├── memory.py
+│   ├── speak.py
+│   └── system_monitor.py
+│
+├── main.py
+├── README.md
+└── requirements.txt
 ```
 
 ---
 
-## 🎤 Example Commands
+## 🧪 Verified Features
 
-```text
-Jarvis
-Open Chrome
-
-Jarvis
-Open Google
-
-Jarvis
-Open YouTube
-
-Jarvis
-Tell Time
-
-Jarvis
-Tell Date
-
-Jarvis
-Exit
-```
+- AI Brain
+- Offline AI
+- Voice Commands
+- Text Commands
+- Smart Memory
+- System Monitor
+- Command Logger
+- Conversation Mode
 
 ---
 
-## 🗺 Roadmap
+## 📌 Current Version
 
-### Completed
+**v0.4.0**
 
-* [x] Voice Recognition
-* [x] Text To Speech
-* [x] Wake Word Detection
-* [x] Open Applications
-* [x] Open Websites
-* [x] Date & Time Commands
-* [x] Command Logging
-
-### Upcoming
-
-* [ ] Memory System
-* [ ] System Monitoring
-* [ ] AI Chat Integration
-* [ ] Face Recognition
-* [ ] GUI Dashboard
-* [ ] Home Automation
-* [ ] Local AI Models
-* [ ] Multi-Agent System
+Status:
+✅ Stable
 
 ---
 
-## 👨‍💻 Author
+## 🚀 Upcoming Version (v0.5.0)
 
-Vishnu
-
-Engineering Student
-
-Building a real-world AI Assistant inspired by Tony Stark's JARVIS.
+- Professional project architecture
+- Modular command handlers
+- AI + Memory context
+- Better AI responses
+- More automation capabilities
