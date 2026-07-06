@@ -3,6 +3,7 @@ import webbrowser
 
 from datetime import datetime
 from handlers.app_handler import handle_app
+from handlers.web_handler import handle_web
 from modules.speak import speak
 from modules.logger import log_command
 from modules.system_monitor import get_system_status
@@ -36,27 +37,17 @@ def execute(command):
     # =========================
     # APPLICATIONS
     # =========================
-
     
     if handle_app(command):
 
      return
-
-
+    
     # =========================
     # WEBSITES
     # =========================
+    if handle_web(command):
 
-    elif "google" in command:
-
-        speak("Opening Google")
-        webbrowser.open("https://www.google.com")
-
-    elif "youtube" in command:
-
-        speak("Opening YouTube")
-        webbrowser.open("https://www.youtube.com")
-
+     return
     # =========================
     # TIME
     # =========================
