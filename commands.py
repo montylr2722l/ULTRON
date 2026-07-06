@@ -2,7 +2,7 @@ import os
 import webbrowser
 
 from datetime import datetime
-
+from handlers.app_handler import handle_app
 from modules.speak import speak
 from modules.logger import log_command
 from modules.system_monitor import get_system_status
@@ -37,20 +37,11 @@ def execute(command):
     # APPLICATIONS
     # =========================
 
-    elif "chrome" in command:
+    
+    if handle_app(command):
 
-        speak("Opening Chrome")
-        os.system("start chrome")
+     return
 
-    elif "notepad" in command:
-
-        speak("Opening Notepad")
-        os.system("notepad")
-
-    elif "visual studio code" in command or "vs code" in command:
-
-        speak("Opening Visual Studio Code")
-        os.system("code")
 
     # =========================
     # WEBSITES
