@@ -1,4 +1,12 @@
+"""
+Local AI Brain
+
+Uses Ollama to answer unknown commands.
+"""
+
 import ollama
+
+from config import AI_MODEL
 
 
 def ask_ai(prompt):
@@ -7,13 +15,15 @@ def ask_ai(prompt):
 
         response = ollama.chat(
 
-            model="llama3.2:3b",
+            model=AI_MODEL,
 
             messages=[
+
                 {
                     "role": "user",
                     "content": prompt
                 }
+
             ]
 
         )
