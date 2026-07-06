@@ -1,8 +1,7 @@
 """
-AI Brain Module for JARVIS.
+Local AI Brain
 
-Purpose:
-Handles communication with the local Ollama AI model.
+Uses Ollama to answer unknown commands.
 """
 
 import ollama
@@ -11,15 +10,6 @@ from config import AI_MODEL
 
 
 def ask_ai(prompt):
-    """
-    Sends a prompt to the local AI model and returns its response.
-
-    Args:
-        prompt (str): User input.
-
-    Returns:
-        str: AI response.
-    """
 
     try:
 
@@ -28,10 +18,12 @@ def ask_ai(prompt):
             model=AI_MODEL,
 
             messages=[
+
                 {
                     "role": "user",
                     "content": prompt
                 }
+
             ]
 
         )
@@ -40,7 +32,4 @@ def ask_ai(prompt):
 
     except Exception as e:
 
-        return (
-            "Sorry, I couldn't reach the AI model.\n"
-            f"Error: {e}"
-        )
+        return f"AI Error: {e}"
