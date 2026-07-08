@@ -4,6 +4,7 @@ Conversation Manager
 Maintains the current chat history for the AI.
 """
 
+MAX_HISTORY = 20
 history = []
 
 
@@ -46,6 +47,7 @@ def add_user_message(message):
         }
     )
 
+    trim_history()
 
 def add_ai_message(message):
     """
@@ -59,6 +61,7 @@ def add_ai_message(message):
         }
     )
 
+    trim_history()
 
 def clear_history():
     """
@@ -66,3 +69,20 @@ def clear_history():
     """
 
     initialize_conversation()
+
+
+def trim_history():
+    """
+    Keeps only the latest conversation.
+
+    System prompt is always preserved.
+    """
+
+    global history
+
+    system_prompt = history[0]
+
+    recent_messages = history[-MAX_HISTORY:]
+
+    history = [system_prompt] + recent_messages    
+    
