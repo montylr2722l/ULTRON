@@ -9,11 +9,12 @@ from config import CONVERSATION_TIMEOUT
 from modules.listen import listen
 from modules.speak import speak
 from modules.greet import greet
+from modules.conversation import initialize_conversation
 from commands import execute
 
 
 def main():
-
+    initialize_conversation()
     greet()
 
     conversation_mode = False
