@@ -1,5 +1,5 @@
 """
-Global configuration for JARVIS.
+Global configuration for ULTRON.
 
 Author : Vishnu
 Version : 0.4.1
@@ -9,7 +9,7 @@ Version : 0.4.1
 # APPLICATION
 # ===========================
 
-APP_NAME = "JARVIS"
+APP_NAME = "ULTRON"
 VERSION = "0.4.1"
 DEBUG = True
 

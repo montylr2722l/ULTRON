@@ -1,6 +1,7 @@
 import os
 import webbrowser
 
+from config import APP_NAME , USER_NAME
 from datetime import datetime
 from handlers.app_handler import handle_app
 from modules.speak import speak
@@ -26,11 +27,11 @@ def execute(command):
 
     if "hello" in command:
 
-        speak("Hello Vishnu")
+        speak(f"Hello {USER_NAME}")
 
     elif "your name" in command:
 
-        speak("My name is Jarvis")
+        speak(f"My name is {APP_NAME}")
 
     # =========================
     # APPLICATIONS
@@ -182,7 +183,7 @@ def execute(command):
         ]
     ):
 
-        speak("Goodbye Vishnu")
+        speak(f"Goodbye {USER_NAME}")
 
         return "exit"
 

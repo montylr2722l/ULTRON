@@ -1,6 +1,6 @@
-# 🚀 JARVIS v0.4.0 – Local AI Assistant
+# 🚀 ULTRON v0.4.0 – Local AI Assistant
 
-JARVIS has evolved from a basic voice assistant into an offline AI-powered desktop assistant capable of handling commands, remembering user information, monitoring the system, and answering general questions using a locally running Large Language Model (LLM).
+ULTRON has evolved from a basic voice assistant into an offline AI-powered desktop assistant capable of handling commands, remembering user information, monitoring the system, and answering general questions using a locally running Large Language Model (LLM).
 
 ---
 
@@ -9,7 +9,7 @@ JARVIS has evolved from a basic voice assistant into an offline AI-powered deskt
 ### 🎤 Voice Interaction
 - Voice command support
 - Text command support
-- Wake word: "Jarvis"
+- Wake word: "Ultorn"
 - Conversation Mode
 - Auto timeout (30 seconds)
 
@@ -58,7 +58,7 @@ JARVIS has evolved from a basic voice assistant into an offline AI-powered deskt
 ## 📂 Project Structure
 
 ```
-JARVIS/
+ULTRON/
 │
 ├── data/
 ├── logs/

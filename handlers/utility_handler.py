@@ -7,7 +7,7 @@ Handles greetings, time, date and exit commands.
 from datetime import datetime
 
 from modules.speak import speak
-from config import USER_NAME
+from config import USER_NAME, APP_NAME
 
 
 def handle_utility(command):
@@ -23,7 +23,7 @@ def handle_utility(command):
 
     if "your name" in command:
 
-        speak("My name is Jarvis")
+        speak(f"My name is {APP_NAME}")
         return True
 
     # =========================

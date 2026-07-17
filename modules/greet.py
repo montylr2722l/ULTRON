@@ -1,5 +1,5 @@
 """
-Greeting module for JARVIS.
+Greeting module for ULTRON.
 """
 
 from datetime import datetime
