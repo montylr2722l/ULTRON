@@ -4,6 +4,8 @@ Conversation Manager
 Maintains the current chat history for the AI.
 """
 
+from modules.prompt_builder import build_system_prompt
+
 MAX_HISTORY = 20
 history = []
 
@@ -16,16 +18,11 @@ def initialize_conversation():
     global history
 
     history = [
-        {
-            "role": "system",
-            "content": (
-                "You are JARVIS, a professional offline AI assistant. "
-                "You are helpful, intelligent, concise and friendly. "
-                "Answer clearly and remember the current conversation."
-            )
-        }
-    ]
-
+    {
+        "role": "system",
+        "content": build_system_prompt()
+    }
+]
 
 def get_history():
     """

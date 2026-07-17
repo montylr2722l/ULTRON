@@ -1,11 +1,11 @@
 """
-Main entry point for JARVIS.
+Main entry point for ULTRON.
 Handles both Voice and Text interaction.
 """
 
 import time
 
-from config import CONVERSATION_TIMEOUT
+from config import CONVERSATION_TIMEOUT ,APP_NAME, USER_NAME
 from modules.listen import listen
 from modules.speak import speak
 from modules.greet import greet
@@ -35,9 +35,9 @@ def main():
 
         if text_input:
 
-            if text_input == "jarvis":
+            if text_input == APP_NAME.lower():
 
-                speak("Yes Vishnu")
+                speak(f"Yes {USER_NAME}")
 
                 conversation_mode = True
                 last_activity = time.time()
@@ -80,7 +80,7 @@ def main():
 
             if wake_word:
 
-                if "jarvis" in wake_word:
+                if APP_NAME.lower() in wake_word:
 
                     speak("Yes Vishnu")
 

@@ -1,19 +1,10 @@
-"""
-Text To Speech Module
-"""
-
 import pyttsx3
 
-from config import (
-    VOICE_RATE,
-    VOICE_VOLUME
-)
+from config import APP_NAME 
 
 engine = pyttsx3.init()
 
-engine.setProperty("rate", VOICE_RATE)
-
-engine.setProperty("volume", VOICE_VOLUME)
+engine.setProperty("rate", 180)
 
 voices = engine.getProperty("voices")
 
@@ -22,7 +13,7 @@ engine.setProperty("voice", voices[1].id)
 
 def speak(text):
 
-    print(f"Jarvis: {text}")
+    print(f"{APP_NAME}: {text}")
 
     engine.say(text)
 

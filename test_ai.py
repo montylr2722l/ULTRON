@@ -7,7 +7,7 @@ while True:
     if query.lower() == "exit":
         break
 
-    print("\nJarvis:")
+    print("\nUltron:")
 
     print(ask_ai(query))
 
